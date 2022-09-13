@@ -1,0 +1,39 @@
+Problem: 
+Java Solution:
+
+import java.util.ArrayList;
+import java.util.*;
+
+public class Solution {
+	public static ArrayList<Pair<Integer, Integer>> twoSum(ArrayList<Integer> arr, int target, int n) {
+		// Write your code here.
+        ArrayList<Pair<Integer, Integer>> ans = new ArrayList<Pair<Integer, Integer>>();
+        Collections.sort(arr);
+        if(n == 1){ 
+            ans.add(new Pair(-1,-1));
+            return ans;
+        }
+        int start = 0;
+        int end = arr.size()-1;
+        int count = 0;
+        while(start<end){
+            if(arr.get(start)+arr.get(end)==target){
+               Pair p = new Pair(arr.get(start), arr.get(end));
+               ans.add(p);
+               start++;
+               end--;
+               count++;
+               
+            }
+            else if(arr.get(start)+arr.get(end)>target)
+                end--;
+            else
+                start++;
+        }
+        if(count == 0){
+            ans.add(new Pair(-1,-1));
+            return ans;
+        }
+        return ans;
+	}
+}

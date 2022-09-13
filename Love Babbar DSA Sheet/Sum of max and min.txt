@@ -1,0 +1,57 @@
+Find sum of maximum and minimum elements from an array.
+
+Java Solution:
+public class Solution {
+    public static int sumOfMaxMin(int[] arr, int n) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        n = arr.length;
+       
+        //checking the odd array
+        //boolean odd = n%2 != 0;
+        boolean odd = (n&1)==1;
+        //if odd then keeping the last element to verify later;
+        if(odd){
+            n--;
+        }
+        //using the brute force or naive technique
+        //       for(int i = 0; i<arr.length; i++){
+        //           if(arr[i]>max)
+        //               max = arr[i];
+        //           if(arr[i]<min)
+        //               min = arr[i];
+        //      }
+       
+        for(int i =0; i<n; i = i+2){
+            int maximum, minimum;
+            if(arr[i]>arr[i+1]){
+                maximum = arr[i];
+                minimum = arr[i+1];
+            }
+            else{
+                maximum = arr[i+1];
+                minimum = arr[i];
+            }
+
+            if(maximum > max){
+                max = maximum;
+            }
+
+            if(minimum<min){
+                min = minimum;
+                }
+        }
+        //handling the odd elements later
+        if (odd)
+        {
+            if (arr[n] > max) {
+                max = arr[n];
+            }
+            if (arr[n] < min) {
+                min = arr[n];
+            }
+        }
+
+        return max+min;
+    }
+}

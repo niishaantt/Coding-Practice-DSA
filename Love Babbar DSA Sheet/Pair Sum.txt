@@ -1,0 +1,26 @@
+
+public class Solution {
+    public static int pairSum(int arr[], int n, int target) {
+        // Write your code here.
+        int count =0;
+        int start =0;
+        int end = arr.length -1;
+        
+        while(start<end){
+            if(arr[start] + arr[end] == target){
+                count++; start++; end--;
+            }
+            else if(arr[start]+arr[end]<target){
+                start++;
+            }
+            else{
+                end--;
+            }
+        }
+        
+        
+        if(count > 0)
+            return count;
+        return -1;
+    }
+}
