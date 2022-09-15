@@ -1,0 +1,34 @@
+Java Solution:
+import java.util.ArrayList;
+import java.util.*;
+
+public class Solution {
+
+    public static int findDuplicate(ArrayList<Integer> arr) {
+
+        //    Write your code here.
+        //Effective Approach using sum 
+        //Sum of N natural numbers = n(n+1)/2;
+        int n_sum = ((arr.size()-1)*(arr.size()))/2;
+        //System.out.println(arr.size());
+        int arr_sum = 0;
+        for(int i=0;i<arr.size(); i++){
+            arr_sum+=arr.get(i);
+        }
+        
+        return(arr_sum - n_sum);
+//         Collections.sort(arr);
+// //         for(int i = 0; i<arr.size(); i++){
+// //             System.out.print(arr.get(i)+" ");
+// //         }
+//         int temp = 0;
+//         for(int i = 1; i!=arr.size()-1; i++){
+//             if(arr.get(i) == arr.get(i-1)){
+//                 temp = arr.get(i);
+//                 break;
+//             }
+//         }
+        
+//         return temp;
+    }
+}
