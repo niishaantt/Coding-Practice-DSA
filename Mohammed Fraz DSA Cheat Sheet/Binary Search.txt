@@ -1,0 +1,54 @@
+Java Solution:
+
+public class Solution { 
+    
+    public static int binarySearchRecursively(int arr[], int start, int end ,  int x){
+        if(arr.length == 0){
+            return -1;
+        }
+        //if start> end then array is empty and both indices have crossed each other 
+        if(start > end)
+            return -1;
+        
+        int mid = (start+end)/2;
+        
+        if(arr[mid] == x){
+            return mid;
+        }
+        
+        else if(x>arr[mid])
+            return binarySearchRecursively(arr, mid+1, end, x);
+        else
+            return binarySearchRecursively(arr, start, mid-1, x);
+    }
+
+    public static int binarySearch(int[] arr, int x) {
+    	//Your code goes here
+        
+//     //Approach 1: Using while loop     
+        
+//         int start = 0;
+//         int end  = arr.length -1;
+//         int mid = 0;
+//         while(start<end){
+//             mid = (start+end)/2;
+//             if(arr[mid] == x)
+//                 return mid;
+//             else if(x > arr[mid])
+//                 start = start+1;
+//             else
+//                 end = end-1;
+                
+            
+//         }
+//         return -1;
+        
+//Approach 2 : using Recursion
+        int start = 0;
+        int end  = arr.length -1;
+        int ans = binarySearchRecursively(arr, start, end , x);
+        return ans;
+        
+    }
+
+}

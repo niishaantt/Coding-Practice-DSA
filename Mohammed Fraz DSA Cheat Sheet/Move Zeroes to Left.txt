@@ -1,0 +1,26 @@
+Java Solution:
+
+
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+    public static void moveZerosToLeft(int[] arr, int n) 
+    {
+        // Write your code here!
+        //using insertPosition(swap approach): first bringing all the elements sequentially in the right and assigning the remaining bits as zero
+        int swap = arr.length-1;
+        for(int i = n-1; i>=0; i--){
+            if(arr[i] != 0){
+                arr[swap--] = arr[i];
+                
+            }
+        }
+        
+        while(swap>=0){
+            arr[swap--] = 0;
+            //swap--;
+        }
+        
+    }
+}
